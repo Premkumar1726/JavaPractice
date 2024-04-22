@@ -54,6 +54,10 @@ public class SinglyLinkedList <Thing>{
         return length;
     }
 
+    boolean isEmpty(){
+        return (this.First == null);
+    }
+
     void removeAtEnd(){
         if(this.First == null)
             System.out.println("the List is empty");
