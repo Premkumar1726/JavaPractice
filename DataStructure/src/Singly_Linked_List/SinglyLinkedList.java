@@ -28,6 +28,16 @@ public class SinglyLinkedList <Thing>{
         }
     } 
 
+    void insertAfter(Thing Item, Thing key){
+        Node<Thing> temp = new Node<>(Item);
+        Node<Thing> cur = this.First;
+        while(cur.Data != key)
+            cur = cur.Next;
+        temp.Next = cur.Next;
+        cur.Next = temp;
+    }
+
+
 
     void display(){
         if(this.First == null)
@@ -58,6 +68,21 @@ public class SinglyLinkedList <Thing>{
         return (this.First == null);
     }
 
+    boolean search(Thing key){
+        if(this.First == null)
+            System.out.println("The list is empty");
+        else{
+            Node<Thing>cur = this.First;
+            while(cur != null){
+                if(cur.Data == key)
+                    return true;
+                else
+                    cur = cur.Next;
+            }
+        }
+        return false;
+    }
+
     void removeAtEnd(){
         if(this.First == null)
             System.out.println("the List is empty");
@@ -82,5 +107,21 @@ public class SinglyLinkedList <Thing>{
             this.First = cur.Next;
             cur = null;
         }
+    }
+
+    void remove(Thing Key){
+        Node<Thing>cur = this.First;
+        Node<Thing>pre = null;
+        if(this.First.Next == null)
+            removeFirst();
+        else{
+            while(cur.Data != Key){
+                pre = cur;
+                cur = cur.Next;
+            }
+            pre.Next = cur.Next;
+            System.out.println("Deleted item: "+cur.Data);
+        }
+        
     }
 }
