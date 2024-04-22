@@ -18,6 +18,17 @@ public class SinglyLinkedList <Thing>{
         }
     }
 
+    void prepend(Thing Item){
+        Node<Thing> temp = new Node<>(Item);
+        if(this.First == null)
+           this.First = temp;
+        else{
+           temp.Next = this.First;
+           this.First = temp;
+        }
+    } 
+
+
     void display(){
         if(this.First == null)
             System.out.println("The List is Empty");
