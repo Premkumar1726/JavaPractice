@@ -68,4 +68,15 @@ public class SinglyLinkedList <Thing>{
             pre.Next = null;
         }
     }
+
+    void removeFirst(){
+        if(this.First == null)
+            System.out.println("The list is empty");
+        else{
+            Node<Thing>cur = this.First;
+            System.out.println("Deleted item: "+cur.Data);
+            this.First = cur.Next;
+            cur = null;
+        }
+    }
 }
